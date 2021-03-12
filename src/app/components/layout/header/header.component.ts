@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +7,12 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  @Output() addBook: EventEmitter<any> = new EventEmitter();
   closeResult = '';
 
   constructor(private modalService: NgbModal) { }
+  title: string;
+  author: string;
 
   ngOnInit(): void {
   }
@@ -31,5 +33,15 @@ export class HeaderComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  onSubmit(){
+    const book = {
+      title: this.title,
+      author: this.author
+    }
+
+    this.addBook.emit(book);
+    console.log("Book submitted");
   }
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { Book } from '../../assets/Book';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,6 +22,10 @@ export class BookService {
 
   getBooks(): Observable<Book[]>{
     return this.http.get<Book[]>(this.bookUrl);
+  }
+
+    addBook(book: Book): Observable<Book>{
+    return this.http.post<Book>(this.bookUrl, book, httpOptions);
   }
 
   /*deleteBook(book:Book):Observable<Book>{
