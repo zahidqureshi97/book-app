@@ -1,13 +1,8 @@
-<div class="main">
 <app-header (addBook)="addBook($event)"></app-header>
-<div class="container">
-    <span></span>
-    <span><h5>Title</h5></span>
-    <span><h5>Author</h5></span>
-<div>
-<app-book-item 
-    *ngFor="let book of books" 
-    [book]="book"
-    (deleteBook)="deleteBook($event)">
-</app-book-item>
+<div *ngFor="let book of books">
+    <app-book-item 
+        [book]="book" 
+        (deleteBook)="deleteBook($event)">
+    </app-book-item>
 </div>
+        

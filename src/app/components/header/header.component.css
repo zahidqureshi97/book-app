@@ -1,0 +1,12 @@
+.header {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header button {
+  background-color: #009933;
+  color: #fff;
+}

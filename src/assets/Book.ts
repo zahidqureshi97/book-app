@@ -1,10 +1,10 @@
 import { Price } from "./Price";
 
 export class Book{
-    ISBN: number;
+    ISBN?: number;
     title: string;
     author: string;
-    summary: string;
-    image: string;
-    price: Price;
+    summary?: string;
+    image?: string;
+    price?: Price;
 }

@@ -1,15 +1,22 @@
-.del{
-    float: right;
-    
-    vertical-align: center;
+.container{
+    display:flex;
+    justify-content: space-between;
+    border-top: solid;
+    border-color: #333;
+    max-width:none;
 }
 
-.container{
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
-.container span {
-    display: table-cell;
+.container h4{
+    display: flex;
+    align-items: center;
     text-align: center;
+    
 }
+
+.del{
+    border: none;
+    background: none;
+    color: #009933;
+    display: flex;
+    align-items: center;
+} 
