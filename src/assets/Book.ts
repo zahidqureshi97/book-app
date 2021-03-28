@@ -7,4 +7,9 @@ export class Book{
     summary?: string;
     image?: string;
     price?: Price;
+
+    constructor(title:string, author:string){
+        this.title = title;
+        this.author = author;
+    } 
 }

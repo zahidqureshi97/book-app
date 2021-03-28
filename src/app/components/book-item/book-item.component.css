@@ -1,22 +1,24 @@
-.container{
-    display:flex;
-    justify-content: space-between;
-    border-top: solid;
-    border-color: #333;
-    max-width:none;
+.container {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid;
+  border-color: #333;
+  max-width: none;
 }
 
-.container h4{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
+.container h4 {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-.del{
-    border: none;
-    background: none;
-    color: #009933;
-    display: flex;
-    align-items: center;
-} 
+.btn {
+  border: none;
+  background: none;
+  color: #009933;
+}
+
+.del {
+  display: flex;
+  align-items: center;
+}

@@ -7,14 +7,12 @@ import { BooksComponent } from './components/books/books.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    BookItemComponent,
-    HeaderComponent,
+    BookItemComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +22,6 @@ import { HeaderComponent } from './components/header/header.component';
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
