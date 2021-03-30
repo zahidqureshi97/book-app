@@ -29,10 +29,12 @@ export class BooksComponent implements OnInit {
 
   deleteBook(book: Book) {
     //Remove From UI
-    this.books = this.books.filter((b) => b.ISBN !== book.ISBN);
-    console.log('Book deleted');
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.books = this.books.filter((b) => b.ISBN !== book.ISBN);
+    }
     //Remove From Server
     //this.bookService.deleteBook(book).subscribe();
+    // change
   }
 
   open(content) {

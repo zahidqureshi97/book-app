@@ -1,7 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  Type,
+} from '@angular/core';
 import { Book } from '../../../assets/Book';
 import { BookService } from '../../services/book.service';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book-item',
@@ -11,8 +18,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class BookItemComponent implements OnInit {
   @Input() book: Book;
   @Output() deleteBook: EventEmitter<Book> = new EventEmitter();
-  updateTitle: string;
-  updateAuthor: string;
+  updateTitle: string = '';
+  updateAuthor: string = '';
 
   constructor(private modalService: NgbModal) {}
 
@@ -22,8 +29,14 @@ export class BookItemComponent implements OnInit {
     this.deleteBook.emit(book);
   }
   onEdit(book) {
-    book.title = this.updateTitle;
-    book.author = this.updateAuthor;
+    if (this.updateTitle.length == 0) {
+      book.author = this.updateAuthor;
+    } else if (this.updateAuthor.length == 0) {
+      book.title = this.updateTitle;
+    } else {
+      book.title = this.updateTitle;
+      book.author = this.updateAuthor;
+    }
   }
   openLg(content) {
     this.modalService.open(content, { size: 'lg' });
